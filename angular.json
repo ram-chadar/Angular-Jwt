@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "jwt": {
+    "security-client-app": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,12 +13,12 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/jwt",
+            "outputPath": "dist/security-client-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": true,
+            "aot": false,
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -41,6 +41,7 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
+              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -49,11 +50,6 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
                 }
               ]
             }
@@ -62,18 +58,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "jwt:build"
+            "browserTarget": "security-client-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "jwt:build:production"
+              "browserTarget": "security-client-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "jwt:build"
+            "browserTarget": "security-client-app:build"
           }
         },
         "test": {
@@ -110,15 +106,19 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "jwt:serve"
+            "devServerTarget": "security-client-app:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "jwt:serve:production"
+              "devServerTarget": "security-client-app:serve:production"
             }
           }
         }
       }
-    }},
-  "defaultProject": "jwt"
+    }
+  },
+  "defaultProject": "security-client-app",
+  "cli": {
+    "analytics": "c044831f-2bab-46fd-985b-fd3403ca0f10"
+  }
 }
